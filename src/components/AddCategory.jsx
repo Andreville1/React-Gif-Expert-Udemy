@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import PropTypes from 'prop-types'
 
 export const AddCategory = ({ onNewCategory }) => { // Aqui siempre recibe props
     const [inputValue, setInputValue] = useState(''); //One Punch es valor por defecto
@@ -23,7 +24,7 @@ export const AddCategory = ({ onNewCategory }) => { // Aqui siempre recibe props
 
     return (
         <>
-            <form onSubmit={(event) => onSubmit(event)}> {/*Recibe un evento y la pasa por parametro (puede quedar solo onSubmit*/}
+            <form onSubmit={(event) => onSubmit(event)} aria-label="form"> {/*Recibe un evento y la pasa por parametro (puede quedar solo onSubmit*/}
                 <input 
                     type="text"
                     placeholder="Buscar Gifs"
@@ -34,3 +35,7 @@ export const AddCategory = ({ onNewCategory }) => { // Aqui siempre recibe props
         </>
     )
 }
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired
+  }
